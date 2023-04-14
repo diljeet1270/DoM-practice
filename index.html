@@ -9,7 +9,37 @@
 </head>
 <body>
     <h1>Students</h1>
+    <div id="data"></div>
     <button onclick="showData()">Show Student Data</button>
-    <script></script>
+    <script>
+        let students = [
+            {name: 'Rahul Chandel', Maths: 50, computer: 79},
+            {name: 'Rohini Manhas', Maths: 40, computer: 69},
+            {name: 'Rahul Chandel', Maths: 50, computer: 79},
+            {name: 'Rahul Chandel', Maths: 50, computer: 79},
+            {name: 'Rahul Chandel', Maths: 50, computer: 79},
+            {name: 'Rahul Chandel', Maths: 50, computer: 79},
+            {name: 'Rahul Chandel', Maths: 50, computer: 79},
+            {name: 'Rahul Chandel', Maths: 50, computer: 79},
+            ]
+            function showData(){
+                let arr = students.map(function(ele){
+                    let str = '<tr>';
+                        str+= '<td>' + ele.name + '</td>';
+                        str+= '<td>' + ele.Maths + '</td>';
+                        str+= '<td>' + ele.computer + '</td>';
+                        str+= '</tr>'
+                        return str;
+                });
+                let header = '<tr>'
+                    header+= '<th>Name</th>'
+                    header+= '<th>Maths</th>'
+                    header+= '<th>Computer</th>'
+                    header+= '</tr>'
+                    let html = '<table>'+header + arr.join('')+'</table>';
+                    let element = document.getElementById('data');
+                    element.innerHTML = html;
+            }
+    </script>
 </body>
 </html>

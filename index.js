@@ -9,9 +9,10 @@ let students = [
     {name: 'Vikas', Maths: 50, computer: 79},
     ]
     let highlightMarks = false;
+    let highlightStudents = false;
     function showData(){
         let arr = students.map(function(ele){
-            let str = '<tr>';
+            let str = '<tr class = \''+getClassStudents(ele)+'\'>';
                 str+= '<td class=\'td\'>' + ele.name + '</td>';
                 str+= '<td class=\''+getClassMarks(ele.Maths)+'\'>' + ele.Maths + '</td>';
                 str+= '<td class=\''+getClassMarks(ele.computer)+'\'>' + ele.computer + '</td>';
@@ -27,6 +28,15 @@ let students = [
             let element = document.getElementById('data');
             element.innerHTML = html;
     }
+    function getClassStudents(st){
+        let total = st.Maths + st.computer;
+        if(total >= 150 && highlightStudents)
+            return 'total150'
+        else if(total >= 150 && highlightStudents)
+            return 'total100'
+        else
+            return '';
+    }
     function getClassMarks(marks){
         if(marks>=75 && highlightMarks)
             return 'td score70'
@@ -37,5 +47,10 @@ let students = [
     }
     function highMarks(){
         highlightMarks = true;
+        showData();
+    }
+    function highStudents(){
+        highlightStudents = true;
+        highlightMarks = false;
         showData();
     }

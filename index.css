@@ -15,3 +15,11 @@ th{
     padding-left: 15px;
     padding-right: 15px;
 }
+.score70{
+    background-color: lightgreen;
+    font-weight: bold;
+}
+.score50{
+    background-color: lightpink;
+    font-weight: bold;
+}

@@ -32,7 +32,7 @@ let students = [
         let total = st.Maths + st.computer;
         if(total >= 150 && highlightStudents)
             return 'total150'
-        else if(total >= 150 && highlightStudents)
+        else if(total <= 100 && highlightStudents)
             return 'total100'
         else
             return '';

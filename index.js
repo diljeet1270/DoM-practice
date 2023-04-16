@@ -20,9 +20,9 @@ let students = [
                 return str;
         });
         let header = '<tr>'
-            header+= '<th class=\'th\'>Name</th>'
-            header+= '<th class=\'th\'>Maths</th>'
-            header+= '<th class=\'th\'>Computer</th>'
+            header+= '<th class=\'th\' onclick=\'sort(0)\'>Name</th>'
+            header+= '<th class=\'th\' onclick=\'sort(1)\'>Maths</th>'
+            header+= '<th class=\'th\' onclick=\'sort(2)\'>Computer</th>'
             header+= '</tr>'
             let html = '<table class=\'table\'>'+header + arr.join('')+'</table>';
             let element = document.getElementById('data');
@@ -53,4 +53,28 @@ let students = [
         highlightStudents = true;
         highlightMarks = false;
         showData();
+    }
+    function clearStyles(){
+        highlightStudents = false;
+        highlightMarks = false;
+        showData();
+    }
+    function sort(colNum){
+        if(colNum == 0){
+            students.sort(sortName)
+        }
+        else if(colNum==1)
+            students.sort(sortMaths)
+        else
+            students.sort(sortComputer);
+        showData();
+    }
+    function sortName(name1, name2){
+        return name1.name.localeCompare(name2.name)
+    }
+    function sortMaths(mark1, marks2){
+        return mark1.Maths-marks2.Maths;
+    }
+    function sortComputer(mark1, marks2){
+        return mark1.computer-marks2.computer;
     }

@@ -23,3 +23,8 @@ th{
     background-color: lightpink;
     font-weight: bold;
 }
+.remBtn{
+    background-color: red;
+    color: white;
+    margin: 2px;
+}

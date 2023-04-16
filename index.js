@@ -16,6 +16,7 @@ let students = [
                 str+= '<td class=\'td\'>' + ele.name + '</td>';
                 str+= '<td class=\''+getClassMarks(ele.Maths)+'\'>' + ele.Maths + '</td>';
                 str+= '<td class=\''+getClassMarks(ele.computer)+'\'>' + ele.computer + '</td>';
+                str+= '<td <button class= \'remBtn\' onclick=\'remove(\''+ele.name+'\')\'>Remove</button></td> '
                 str+= '</tr>'
                 return str;
         });
@@ -23,6 +24,7 @@ let students = [
             header+= '<th class=\'th\' onclick=\'sort(0)\'>Name</th>'
             header+= '<th class=\'th\' onclick=\'sort(1)\'>Maths</th>'
             header+= '<th class=\'th\' onclick=\'sort(2)\'>Computer</th>'
+            header+= '<th class=\'th\'</th>'
             header+= '</tr>'
             let html = '<table class=\'table\'>'+header + arr.join('')+'</table>';
             let element = document.getElementById('data');

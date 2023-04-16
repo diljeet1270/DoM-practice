@@ -16,7 +16,7 @@ let students = [
                 str+= '<td class=\'td\'>' + ele.name + '</td>';
                 str+= '<td class=\''+getClassMarks(ele.Maths)+'\'>' + ele.Maths + '</td>';
                 str+= '<td class=\''+getClassMarks(ele.computer)+'\'>' + ele.computer + '</td>';
-                str+= '<td <button class= \'remBtn\' onclick=\'remove(\''+ele.name+'\')\'>Remove</button></td> '
+                str+= '<td <button class= \'remBtn\' onclick=\'remove("'+ele.name+'")\'>Remove</button> </td> '
                 str+= '</tr>'
                 return str;
         });
@@ -29,6 +29,13 @@ let students = [
             let html = '<table class=\'table\'>'+header + arr.join('')+'</table>';
             let element = document.getElementById('data');
             element.innerHTML = html;
+    }
+    function remove(name){
+        let index = students.findIndex(function(stu){
+            return stu.name == name;
+        })
+        students.splice(index, 1);
+        showData();
     }
     function getClassStudents(st){
         let total = st.Maths + st.computer;
